@@ -1294,7 +1294,6 @@ body {
         align-items: center;
     }
 
-    /* CORREÇÃO: Mostra a lista de links quando o menu está aberto */
     .main-nav ul.desktop-nav {
         display: flex;
         flex-direction: column;
@@ -1309,7 +1308,6 @@ body {
         font-size: 1.8rem;
     }
     
-    /* Animação do botão Hambúrguer para 'X' */
     body.nav-open .mobile-nav-toggle span {
         background-color: var(--secondary-color);
     }
@@ -1339,18 +1337,32 @@ body {
         max-width: 100%;
         padding: 0 5% 15vh 5%;
     }
+
+    /* CORREÇÃO: Setas do Carrossel Principal */
+    .carousel-arrow {
+        width: 40px;
+        height: 40px;
+    }
+    .carousel-arrow.prev { left: 15px; }
+    .carousel-arrow.next { right: 15px; }
+
+
     .about-us-grid {
         gap: 30px;
     }
-     .logos-grid {
-        grid-template-columns: repeat(3, 1fr);
-        gap: 40px 15px; /* Reduz o espaçamento lateral entre logos */
-        padding: 0 15px; /* Adiciona um respiro interno */
+
+    /* CORREÇÃO: Posição das setas do carrossel "Sobre Nós" */
+    .about-text-slider {
+        margin-bottom: 20px;
     }
-      /* Adicione esta regra para remover as margens da seção de logos */
-    .client-logos .container {
-        padding-left: 0;
-        padding-right: 0;
+    .about-carousel-nav {
+        margin-top: 20px;
+        justify-content: center;
+    }
+
+    /* CORREÇÃO: Grade de logos para 2 colunas */
+    .logos-grid {
+        grid-template-columns: repeat(2, 1fr);
     }
     
     /* --- AJUSTES DO RODAPÉ --- */
