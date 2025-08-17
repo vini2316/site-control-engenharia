@@ -1244,7 +1244,7 @@ a.service-card-link {
 /* --- 14. RESPONSIVIDADE (MOBILE) --- */
 /* =============================================== */
 
-/* Adicionado para evitar o scroll horizontal indesejado */
+/* Previne o scroll horizontal indesejado */
 body {
     overflow-x: hidden;
 }
@@ -1252,7 +1252,7 @@ body {
 @media (max-width: 992px) {
     /* --- CABEÇALHO E MENU HAMBÚRGUER --- */
     .main-nav .desktop-nav {
-        display: none; /* Esconde o menu de desktop */
+        display: none;
     }
 
     .mobile-nav-toggle {
@@ -1326,7 +1326,8 @@ body {
         font-size: 2rem;
     }
     .slide-content h1 {
-        font-size: 2.5rem;
+        font-size: 2.2rem; /* REDUZIDO um pouco mais para evitar cortes */
+        line-height: 1.3;
     }
     .page-header h1 {
         font-size: 2.2rem;
@@ -1337,8 +1338,6 @@ body {
         max-width: 100%;
         padding: 0 5% 15vh 5%;
     }
-
-    /* CORREÇÃO: Setas do Carrossel Principal */
     .carousel-arrow {
         width: 40px;
         height: 40px;
@@ -1351,18 +1350,33 @@ body {
         gap: 30px;
     }
 
-    /* CORREÇÃO: Posição das setas do carrossel "Sobre Nós" */
     .about-text-slider {
-        margin-bottom: 20px;
+        margin-bottom: 0; /* REMOVIDO espaçamento para ajustar as setas */
     }
     .about-carousel-nav {
-        margin-top: 20px;
+        margin-top: 30px; /* AUMENTADO para empurrar as setas para baixo */
         justify-content: center;
     }
+    
+    /* CORRIGIDO: Imagem grande na página SIDECC-R */
+    .content-image-large img {
+        transform: none; /* Remove o efeito de zoom no mobile */
+    }
 
-    /* CORREÇÃO: Grade de logos para 2 colunas */
+    /* CORRIGIDO: Margens das páginas de notícias */
+    .article-content {
+        padding: 40px 20px; /* Adiciona espaçamento lateral */
+    }
+
+    /* CORRIGIDO: Grade de logos para 2 colunas */
+    .client-logos .container {
+        padding-left: 0;
+        padding-right: 0;
+    }
     .logos-grid {
         grid-template-columns: repeat(2, 1fr);
+        gap: 40px 15px;
+        padding: 0 15px;
     }
     
     /* --- AJUSTES DO RODAPÉ --- */
