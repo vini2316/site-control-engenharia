@@ -1023,19 +1023,19 @@ a.service-card-link {
 }
 
 /* =============================================== */
-/* --- 11. SEÇÃO SOBRE NÓS CARROSSEL (CORRIGIDO) --- */
+/* --- 11. SEÇÃO SOBRE NÓS CARROSSEL (VERSÃO FINAL E SIMPLIFICADA) --- */
 /* =============================================== */
 .about-us-section {
     padding: 100px 0;
     background: #fff;
-    overflow: hidden; /* Mantido para segurança */
+    overflow: hidden;
 }
 
 .about-us-grid {
     display: grid;
     grid-template-columns: 1fr;
     gap: 50px;
-    align-items: start; /* ALTERADO: 'center' estava espremendo o conteúdo. 'start' alinha no topo. */
+    align-items: center; /* 'center' funciona bem quando o layout é estável */
 }
 
 @media (min-width: 992px) {
@@ -1069,38 +1069,28 @@ a.service-card-link {
     opacity: 1;
 }
 
-/* ADICIONADO: Define um ponto de referência para o posicionamento das setas */
+/* O contêiner de conteúdo volta a ser simples */
 .about-us-content {
-    position: relative;
-    padding-bottom: 80px; /* ADICIONADO: Cria um espaço na parte de baixo para as setas não cobrirem o botão */
+    text-align: left; /* Padrão para desktop */
 }
-
 
 .about-us-content .section-title {
     margin-bottom: 40px;
     font-size: 2.8rem;
 }
 
-/* Aumentamos a altura mínima para dar mais espaço ao texto, evitando quebras */
+/* O slider não precisa mais de altura mínima ou posicionamento */
 .about-text-slider {
-    position: relative;
-    min-height: 280px; /* ALTERADO: Um pouco mais de altura para comportar o texto e o botão */
-    margin-bottom: 0; /* REMOVIDO: O espaço agora é controlado pelo padding do pai */
+    margin-bottom: 30px; /* Espaço entre o texto e as setas */
 }
 
+/* ESTA É A MUDANÇA PRINCIPAL */
 .about-text-slide {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity 0.6s ease-in-out, visibility 0.6s;
+    display: none; /* Esconde os slides inativos para não ocuparem espaço */
 }
 
 .about-text-slide.active {
-    opacity: 1;
-    visibility: visible;
+    display: block; /* Mostra apenas o slide ativo, que agora ocupa seu espaço real */
 }
 
 .about-text-slide h3 {
@@ -1133,23 +1123,11 @@ a.service-card-link {
     transform: translateY(-3px);
 }
 
-/* ALTERADO: Agora as setas são posicionadas de forma absoluta no fundo */
+/* Navegação volta a ser um bloco simples no fluxo da página */
 .about-carousel-nav {
     display: flex;
     gap: 15px;
-    position: absolute; /* ADICIONADO */
-    bottom: 0; /* ADICIONADO: Gruda na parte de baixo */
-    left: 50%; /* ADICIONADO: Prepara para centralizar */
-    transform: translateX(-50%); /* ADICIONADO: Centraliza perfeitamente no mobile */
-}
-
-/* No desktop, alinhamos à direita */
-@media (min-width: 992px) {
-    .about-carousel-nav {
-        left: auto; /* Reseta o 'left' do mobile */
-        right: 0; /* Alinha na direita */
-        transform: none; /* Reseta a transformação */
-    }
+    justify-content: flex-start; /* Alinhado à esquerda no desktop */
 }
 
 .about-arrow {
@@ -1172,6 +1150,17 @@ a.service-card-link {
     background: var(--primary-color);
     border-color: var(--primary-color);
     color: #fff;
+}
+
+/* AJUSTES PARA MOBILE */
+@media (max-width: 991px) { /* Usando 991px para evitar conflito com a regra de 992px */
+    .about-us-content {
+        text-align: center; /* Centraliza todo o conteúdo no mobile */
+    }
+
+    .about-carousel-nav {
+        justify-content: center; /* Centraliza as setas no mobile */
+    }
 }
 
 /* =============================================== */
