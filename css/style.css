@@ -1345,21 +1345,25 @@ body {
     .carousel-arrow.prev { left: 15px; }
     .carousel-arrow.next { right: 15px; }
 
-
+    /* CORREÇÃO DA SEÇÃO "SOBRE NÓS" CARROSSEL */
     .about-us-grid {
+        grid-template-columns: 1fr; /* Força uma única coluna */
         gap: 30px;
-        text-align: center; /* Centraliza o título e o botão */
     }
-
-    /* CORREÇÃO FINAL DAS SETAS */
+    .about-us-images {
+        padding-top: 60%; /* Proporção mais retangular para a imagem */
+        min-height: unset;
+    }
+    .about-us-content {
+        text-align: center; /* Centraliza todo o conteúdo de texto */
+    }
     .about-text-slider {
-        position: relative; /* Mantém a posição relativa */
-        min-height: unset; /* Remove a altura mínima */
-        margin-bottom: 20px; /* Adiciona um espaço abaixo do botão */
+        margin-bottom: 20px;
+        min-height: unset;
     }
     .about-carousel-nav {
-        margin-top: 0; /* Remove a margem de cima */
         justify-content: center;
+        margin-top: 0;
     }
     
     .content-image-large img {
