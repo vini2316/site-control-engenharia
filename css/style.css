@@ -1244,6 +1244,11 @@ a.service-card-link {
 /* --- 14. RESPONSIVIDADE (MOBILE) --- */
 /* =============================================== */
 
+/* Adicionado para evitar o scroll horizontal indesejado */
+body {
+    overflow-x: hidden;
+}
+
 @media (max-width: 992px) {
     /* --- CABEÇALHO E MENU HAMBÚRGUER --- */
     .main-nav .desktop-nav {
@@ -1251,7 +1256,7 @@ a.service-card-link {
     }
 
     .mobile-nav-toggle {
-        display: flex; /* Mostra o botão hambúrguer */
+        display: flex;
         flex-direction: column;
         justify-content: space-around;
         width: 30px;
@@ -1289,15 +1294,17 @@ a.service-card-link {
         align-items: center;
     }
 
-    body.nav-open .main-nav {
-        transform: translateX(0);
-    }
-    
-    .main-nav ul {
+    /* CORREÇÃO: Mostra a lista de links quando o menu está aberto */
+    .main-nav ul.desktop-nav {
+        display: flex;
         flex-direction: column;
         gap: 30px;
     }
 
+    body.nav-open .main-nav {
+        transform: translateX(0);
+    }
+    
     .main-nav a {
         font-size: 1.8rem;
     }
