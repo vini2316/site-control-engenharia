@@ -1,6 +1,14 @@
 document.addEventListener('DOMContentLoaded', function () {
-    
-    // --- LÓGICA DO CARROSSEL (JÁ EXISTENTE) ---
+
+    // --- LÓGICA DO MENU HAMBÚRGUER (MOBILE) ---
+    const mobileNavToggle = document.querySelector('.mobile-nav-toggle');
+    if (mobileNavToggle) {
+        mobileNavToggle.addEventListener('click', function() {
+            document.body.classList.toggle('nav-open');
+        });
+    }
+
+    // --- LÓGICA DO CARROSSEL HERO ---
     const carouselContainer = document.querySelector('.hero-carousel');
     if (carouselContainer) {
         const slides = carouselContainer.querySelectorAll('.slide');
@@ -64,16 +72,13 @@ document.addEventListener('DOMContentLoaded', function () {
         resetInterval();
     }
 
-
-    // --- NOVA LÓGICA DE ANIMAÇÃO NO SCROLL (INTERSECTION OBSERVER) ---
+    // --- LÓGICA DE ANIMAÇÃO NO SCROLL (INTERSECTION OBSERVER) ---
     const fadeElements = document.querySelectorAll('.fade-in-element');
-
     const observerOptions = {
         root: null,
         rootMargin: '0px',
         threshold: 0.1 
     };
-
     const observer = new IntersectionObserver((entries, observer) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
@@ -87,8 +92,7 @@ document.addEventListener('DOMContentLoaded', function () {
         observer.observe(element);
     });
 
-
-    // --- LÓGICA DO NOVO CARROSSEL DA SEÇÃO SOBRE NÓS ---
+    // --- LÓGICA DO CARROSSEL DA SEÇÃO SOBRE NÓS ---
     const aboutCarousel = document.getElementById('about-us-carousel');
     if (aboutCarousel) {
         const imageSlides = aboutCarousel.querySelectorAll('.about-slide-image');
@@ -98,14 +102,9 @@ document.addEventListener('DOMContentLoaded', function () {
         let currentAboutSlide = 0;
 
         function showAboutSlide(index) {
-            // Remove a classe 'active' do slide atual (imagem e texto)
             imageSlides[currentAboutSlide].classList.remove('active');
             textSlides[currentAboutSlide].classList.remove('active');
-
-            // Calcula o novo índice
             currentAboutSlide = (index + imageSlides.length) % imageSlides.length;
-
-            // Adiciona a classe 'active' ao novo slide (imagem e texto)
             imageSlides[currentAboutSlide].classList.add('active');
             textSlides[currentAboutSlide].classList.add('active');
         }
@@ -118,12 +117,9 @@ document.addEventListener('DOMContentLoaded', function () {
             showAboutSlide(currentAboutSlide + 1);
         });
     }
-});
 
-// --- LÓGICA PARA ENVIO DO FORMULÁRIO DE CONTATO VIA AJAX ---
-document.addEventListener('DOMContentLoaded', function() {
+    // --- LÓGICA PARA ENVIO DO FORMULÁRIO DE CONTATO VIA AJAX ---
     const contactForm = document.getElementById('contact-form');
-    
     if (contactForm) {
         contactForm.addEventListener('submit', function(e) {
             e.preventDefault();
@@ -135,32 +131,22 @@ document.addEventListener('DOMContentLoaded', function() {
             fetch(form.action, {
                 method: form.method,
                 body: data,
-                headers: {
-                    'Accept': 'application/json'
-                }
+                headers: { 'Accept': 'application/json' }
             }).then(response => {
                 if (response.ok) {
-                    // Mensagem de sucesso
                     statusDiv.className = 'success visible';
                     statusDiv.innerHTML = `<span class="icon"><i class="fas fa-check-circle"></i></span> <span>Mensagem enviada com sucesso!</span>`;
                     form.reset();
                 } else {
-                    // Mensagem de erro
                     statusDiv.className = 'error visible';
                     statusDiv.innerHTML = `<span class="icon"><i class="fas fa-exclamation-circle"></i></span> <span>Ocorreu um erro. Tente novamente.</span>`;
                 }
-                
-                // Esconde a mensagem após 4 segundos
                 setTimeout(() => {
                     statusDiv.classList.remove('visible');
                 }, 4000);
-
             }).catch(error => {
-                // Mensagem de erro de rede
                 statusDiv.className = 'error visible';
                 statusDiv.innerHTML = `<span class="icon"><i class="fas fa-exclamation-circle"></i></span> <span>Ocorreu um erro de conexão.</span>`;
-
-                // Esconde a mensagem após 4 segundos
                 setTimeout(() => {
                     statusDiv.classList.remove('visible');
                 }, 4000);

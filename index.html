@@ -17,11 +17,11 @@
     <header class="main-header">
         <div class="container">
             <a href="index.html" class="logo">
-    <img src="assets/img/logo-control-color.png" alt="Control Engenharia e Automação">
-    <span>Control Engenharia</span>
-</a>
+                <img src="assets/img/logo-control-color.png" alt="Control Engenharia e Automação">
+                <span>Control Engenharia</span>
+            </a>
             <nav class="main-nav">
-                <ul>
+                <ul class="desktop-nav">
                     <li class="active"><a href="index.html">Início</a></li>
                     <li><a href="sobre.html">Sobre Nós</a></li>
                     <li><a href="servicos.html">Serviços</a></li>
@@ -29,6 +29,11 @@
                     <li><a href="contato.html">Contato</a></li>
                 </ul>
             </nav>
+            <button class="mobile-nav-toggle" aria-label="Abrir menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
         </div>
     </header>
 
@@ -121,38 +126,42 @@
         </section>
 
         <section id="about-us-carousel" class="about-us-section fade-in-element">
-            <div class="container about-us-grid">
-                <div class="about-us-images">
-                    <img src="assets/img/about-img-1.jpg" alt="Estação de tratamento complexa vista de cima" class="about-slide-image active">
-                    <img src="assets/img/about-img-2.jpg" alt="Veículo da Control Engenharia em campo" class="about-slide-image">
-                    <img src="assets/img/about-img-3.jpg" alt="Instalação industrial moderna e organizada" class="about-slide-image">
+    <div class="container about-us-grid">
+        <div class="about-us-images">
+            <img src="assets/img/about-img-1.jpg" alt="Estação de tratamento complexa vista de cima" class="about-slide-image active">
+            <img src="assets/img/about-img-2.jpg" alt="Veículo da Control Engenharia em campo" class="about-slide-image">
+            <img src="assets/img/about-img-3.jpg" alt="Instalação industrial moderna e organizada" class="about-slide-image">
+        </div>
+        <div class="about-us-content">
+            <h2 class="section-title">Engenharia que Gera Confiança</h2>
+            <div class="about-text-slider">
+                
+                <div class="about-text-slide active">
+                    <h3>Engenharia de Precisão</h3>
+                    <p>Nossa missão é ir além do projeto. Analisamos sua operação para transformar dados em resultados concretos, garantindo a máxima eficiência para sua indústria ou sistema de saneamento.</p>
+                    <a href="servicos.html" class="btn-about-slide">Conheça Nossos Serviços</a>
                 </div>
-                <div class="about-us-content">
-                    <h2 class="section-title">Engenharia que Gera Confiança</h2>
-                    <div class="about-text-slider">
-                        <div class="about-text-slide active">
-                            <h3>Engenharia de Precisão</h3>
-                            <p>Nossa missão é ir além do projeto. Analisamos sua operação para transformar dados em resultados concretos, garantindo a máxima eficiência para sua indústria ou sistema de saneamento.</p>
-                            <a href="servicos.html" class="btn-about-slide">Conheça Nossos Serviços</a>
-                        </div>
-                        <div class="about-text-slide">
-                            <h3>Qualidade que se Vê</h3>
-                            <p>Acreditamos que a inovação nasce do controle. Gerenciamos cada detalhe, do design aos testes finais, para construir sistemas de automação que você pode confiar plenamente, hoje e no futuro.</p>
-                            <a href="sobre.html" class="btn-about-slide">Sobre a Control</a>
-                        </div>
-                        <div class="about-text-slide">
-                            <h3>Parceria para o Futuro</h3>
-                            <p>Mais do que executar, nos aprofundamos nos seus objetivos. Entendemos suas metas para entregar uma solução de engenharia que atue como um verdadeiro motor para o sucesso do seu negócio.</p>
-                            <a href="contato.html" class="btn-about-slide">Fale com um Especialista</a>
-                        </div>
-                    </div>
-                    <div class="about-carousel-nav">
-                        <button class="about-arrow prev" aria-label="Anterior"><i class="fas fa-chevron-left"></i></button>
-                        <button class="about-arrow next" aria-label="Próximo"><i class="fas fa-chevron-right"></i></button>
-                    </div>
+
+                <div class="about-text-slide">
+                    <h3>Qualidade que se Vê</h3>
+                    <p>Acreditamos que a inovação nasce do controle. Gerenciamos cada detalhe, do design aos testes finais, para construir sistemas de automação que você pode confiar plenamente, hoje e no futuro.</p>
+                    <a href="sobre.html" class="btn-about-slide">Sobre a Control</a>
                 </div>
+
+                <div class="about-text-slide">
+                    <h3>Parceria para o Futuro</h3>
+                    <p>Mais do que executar, nos aprofundamos nos seus objetivos. Entendemos suas metas para entregar uma solução de engenharia que atue como um verdadeiro motor para o sucesso do seu negócio.</p>
+                    <a href="contato.html" class="btn-about-slide">Fale com um Especialista</a>
+                </div>
+
             </div>
-        </section>
+            <div class="about-carousel-nav">
+                <button class="about-arrow prev" aria-label="Anterior"><i class="fas fa-chevron-left"></i></button>
+                <button class="about-arrow next" aria-label="Próximo"><i class="fas fa-chevron-right"></i></button>
+            </div>
+        </div>
+    </div>
+</section>
 
         <section class="client-logos fade-in-element">
             <div class="container">
