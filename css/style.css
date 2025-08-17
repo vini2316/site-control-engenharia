@@ -1028,14 +1028,14 @@ a.service-card-link {
 .about-us-section {
     padding: 100px 0;
     background: #fff;
-    overflow: hidden;
+    overflow: hidden; /* Mantido para segurança */
 }
 
 .about-us-grid {
     display: grid;
     grid-template-columns: 1fr;
     gap: 50px;
-    align-items: center;
+    align-items: start; /* ALTERADO: 'center' estava espremendo o conteúdo. 'start' alinha no topo. */
 }
 
 @media (min-width: 992px) {
@@ -1069,24 +1069,23 @@ a.service-card-link {
     opacity: 1;
 }
 
-/* ADICIONADO: Organiza o conteúdo em uma coluna flexível */
+/* ADICIONADO: Define um ponto de referência para o posicionamento das setas */
 .about-us-content {
-    display: flex;
-    flex-direction: column;
-    height: 100%;
+    position: relative;
+    padding-bottom: 80px; /* ADICIONADO: Cria um espaço na parte de baixo para as setas não cobrirem o botão */
 }
+
 
 .about-us-content .section-title {
     margin-bottom: 40px;
     font-size: 2.8rem;
 }
 
-/* ALTERADO: Agora o contêiner de texto cresce para preencher o espaço */
+/* Aumentamos a altura mínima para dar mais espaço ao texto, evitando quebras */
 .about-text-slider {
     position: relative;
-    margin-bottom: 30px;
-    flex-grow: 1; /* ADICIONADO: Faz o bloco crescer e empurrar as setas para baixo */
-    /* min-height: 250px; /* REMOVIDO: Isso causava o problema de sobreposição */
+    min-height: 280px; /* ALTERADO: Um pouco mais de altura para comportar o texto e o botão */
+    margin-bottom: 0; /* REMOVIDO: O espaço agora é controlado pelo padding do pai */
 }
 
 .about-text-slide {
@@ -1134,21 +1133,24 @@ a.service-card-link {
     transform: translateY(-3px);
 }
 
-/* ALTERADO: Alinhamento explícito para as setas */
+/* ALTERADO: Agora as setas são posicionadas de forma absoluta no fundo */
 .about-carousel-nav {
     display: flex;
     gap: 15px;
-    width: 100%; /* ADICIONADO: Necessário para o justify-content funcionar bem */
-    justify-content: flex-start; /* Alinha à esquerda por padrão */
+    position: absolute; /* ADICIONADO */
+    bottom: 0; /* ADICIONADO: Gruda na parte de baixo */
+    left: 50%; /* ADICIONADO: Prepara para centralizar */
+    transform: translateX(-50%); /* ADICIONADO: Centraliza perfeitamente no mobile */
 }
 
-/* No desktop, vamos alinhar à direita para um visual mais limpo */
+/* No desktop, alinhamos à direita */
 @media (min-width: 992px) {
     .about-carousel-nav {
-        justify-content: flex-end;
+        left: auto; /* Reseta o 'left' do mobile */
+        right: 0; /* Alinha na direita */
+        transform: none; /* Reseta a transformação */
     }
 }
-
 
 .about-arrow {
     background: var(--background-light);
