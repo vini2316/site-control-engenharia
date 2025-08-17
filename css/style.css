@@ -1342,8 +1342,15 @@ body {
     .about-us-grid {
         gap: 30px;
     }
-    .logos-grid {
+     .logos-grid {
         grid-template-columns: repeat(3, 1fr);
+        gap: 40px 15px; /* Reduz o espaçamento lateral entre logos */
+        padding: 0 15px; /* Adiciona um respiro interno */
+    }
+      /* Adicione esta regra para remover as margens da seção de logos */
+    .client-logos .container {
+        padding-left: 0;
+        padding-right: 0;
     }
     
     /* --- AJUSTES DO RODAPÉ --- */
