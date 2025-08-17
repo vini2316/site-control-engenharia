@@ -1326,7 +1326,7 @@ body {
         font-size: 2rem;
     }
     .slide-content h1 {
-        font-size: 2.2rem; /* REDUZIDO um pouco mais para evitar cortes */
+        font-size: 2.2rem;
         line-height: 1.3;
     }
     .page-header h1 {
@@ -1348,27 +1348,28 @@ body {
 
     .about-us-grid {
         gap: 30px;
+        text-align: center; /* Centraliza o título e o botão */
     }
 
+    /* CORREÇÃO FINAL DAS SETAS */
     .about-text-slider {
-        margin-bottom: 0; /* REMOVIDO espaçamento para ajustar as setas */
+        position: relative; /* Mantém a posição relativa */
+        min-height: unset; /* Remove a altura mínima */
+        margin-bottom: 20px; /* Adiciona um espaço abaixo do botão */
     }
     .about-carousel-nav {
-        margin-top: 30px; /* AUMENTADO para empurrar as setas para baixo */
+        margin-top: 0; /* Remove a margem de cima */
         justify-content: center;
     }
     
-    /* CORRIGIDO: Imagem grande na página SIDECC-R */
     .content-image-large img {
-        transform: none; /* Remove o efeito de zoom no mobile */
+        transform: none;
     }
 
-    /* CORRIGIDO: Margens das páginas de notícias */
     .article-content {
-        padding: 40px 20px; /* Adiciona espaçamento lateral */
+        padding: 40px 20px;
     }
 
-    /* CORRIGIDO: Grade de logos para 2 colunas */
     .client-logos .container {
         padding-left: 0;
         padding-right: 0;
