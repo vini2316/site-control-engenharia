@@ -1023,7 +1023,7 @@ a.service-card-link {
 }
 
 /* =============================================== */
-/* --- 11. SEÇÃO SOBRE NÓS CARROSSEL (NOVA) --- */
+/* --- 11. SEÇÃO SOBRE NÓS CARROSSEL (CORRIGIDO) --- */
 /* =============================================== */
 .about-us-section {
     padding: 100px 0;
@@ -1040,15 +1040,15 @@ a.service-card-link {
 
 @media (min-width: 992px) {
     .about-us-grid {
-        grid-template-columns: 1.1fr 1fr; /* Coluna da imagem maior */
-        gap: 70px; /* Aumenta o espaçamento */
+        grid-template-columns: 1.1fr 1fr;
+        gap: 70px;
     }
 }
 
 .about-us-images {
     position: relative;
     width: 100%;
-    padding-top: 100%; /* Cria um container quadrado (aspect ratio 1:1) */
+    padding-top: 100%;
     min-height: 450px;
 }
 
@@ -1062,22 +1062,31 @@ a.service-card-link {
     border-radius: 15px;
     opacity: 0;
     transition: opacity 0.8s ease-in-out;
-    box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
 }
 
 .about-slide-image.active {
     opacity: 1;
 }
 
-.about-us-content .section-title {
-    margin-bottom: 40px;
-    font-size: 2.8rem; /* Aumentado */
+/* ADICIONADO: Organiza o conteúdo em uma coluna flexível */
+.about-us-content {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
 }
 
+.about-us-content .section-title {
+    margin-bottom: 40px;
+    font-size: 2.8rem;
+}
+
+/* ALTERADO: Agora o contêiner de texto cresce para preencher o espaço */
 .about-text-slider {
     position: relative;
-    min-height: 250px; /* Altura para evitar que o layout pule */
     margin-bottom: 30px;
+    flex-grow: 1; /* ADICIONADO: Faz o bloco crescer e empurrar as setas para baixo */
+    /* min-height: 250px; /* REMOVIDO: Isso causava o problema de sobreposição */
 }
 
 .about-text-slide {
@@ -1096,13 +1105,13 @@ a.service-card-link {
 }
 
 .about-text-slide h3 {
-    font-size: 1.8rem; /* Aumentado */
+    font-size: 1.8rem;
     color: var(--primary-color);
     margin-bottom: 15px;
 }
 
 .about-text-slide p {
-    font-size: 1.15rem; /* Levemente aumentado */
+    font-size: 1.15rem;
     color: #555;
     margin-bottom: 30px;
 }
@@ -1125,10 +1134,21 @@ a.service-card-link {
     transform: translateY(-3px);
 }
 
+/* ALTERADO: Alinhamento explícito para as setas */
 .about-carousel-nav {
     display: flex;
     gap: 15px;
+    width: 100%; /* ADICIONADO: Necessário para o justify-content funcionar bem */
+    justify-content: flex-start; /* Alinha à esquerda por padrão */
 }
+
+/* No desktop, vamos alinhar à direita para um visual mais limpo */
+@media (min-width: 992px) {
+    .about-carousel-nav {
+        justify-content: flex-end;
+    }
+}
+
 
 .about-arrow {
     background: var(--background-light);
@@ -1137,7 +1157,7 @@ a.service-card-link {
     width: 50px;
     height: 50px;
     border-radius: 50%;
-    font-size: 1.2rem; /* Tamanho do ícone da seta */
+    font-size: 1.2rem;
     cursor: pointer;
     display: flex;
     align-items: center;
